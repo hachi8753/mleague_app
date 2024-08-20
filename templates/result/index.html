@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>成績:レギュラーシーズン</h1>
+{% endblock %}
+
+{% block content %}
+
+<a href="{{ url_for('result.champion') }}" class="result-button">CHAMPION</a>
+
+<br>
+<div class="container">
+    <a href="{{ url_for('result.display', year=2018) }}" class="button">2018-19シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2019) }}" class="button">2019-20シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2020) }}" class="button">2020-21シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2021) }}" class="button">2021-22シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2022) }}" class="button">2022-23シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2023) }}" class="button">2023-24シーズン</a><br>
+    <a href="{{ url_for('result.display', year=2024) }}" class="button">2024-25シーズン</a>
+    <br>
+</div>
+<br>
+
+<a href="{{ url_for('index') }}" class="button">戻る</a>
+{% endblock %}

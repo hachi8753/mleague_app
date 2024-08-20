@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<h2>選手一覧</h2>
+<hr/>
+
+<div class="grid-players">
+    {% for player in players_dict %}
+        <div class="grid-players-item">
+            <a href="{{ url_for('player.detail', playerid=player.player.id) }}">
+            {% if player.path is none %}
+                <img src="{{ url_for('static', filename='images/person_icon.png') }}" class="player-icon player-icon-shadow">
+            {% else %}
+                <img src="{{ url_for('static', filename='images/' + player.path) }}" class="player-icon">
+            {% endif %}
+            <!-- style="border: 2px solid #{{player.player.team.color_code}};" -->
+            </a>
+            <p class="player-icon-caption">{{player.player.name}}</p>
+        </div>
+    {% endfor %}
+
+</div>
+<div class="grid-players">
+    {% for player in leave_players_dict %}
+    <div class="grid-players-item">
+        <a href="{{ url_for('player.detail', playerid=player.player.id) }}">
+            {% if player.path is none %}
+            <img src="{{ url_for('static', filename='images/person_icon.png') }}" class="player-icon">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/' + player.path) }}" class="player-icon">
+            {% endif %}
+            <!-- style="border: 2px solid #{{player.player.team.color_code}};" -->
+        </a>
+        <p class="player-icon-caption">{{player.player.name}}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>レギュレーション登録</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <form method="POST" action="{{ url_for('register.regulation') }}">
+        {{ form.csrf_token }}
+        {{ form.year.label }}{{ form.year() }}<br><br>
+        {{ form.regular.label }}<br>{{ form.regular() }}<br>
+        {{ form.semi.label }}<br>{{ form.semi() }}<br>
+        {{ form.final.label }}<br>{{ form.final() }}<br>
+        {{ form.submit() }}
+    </form>
+    <br>
+</div>
+
+<a href="{{ url_for('register.index') }}">戻る</a>
+{% endblock %}

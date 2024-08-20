@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>成績</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container-result">
+    <table>
+        <tr class="tr-header">
+            <td>選手ID</td>
+            <td>選手名</td>
+            <td>チーム名</td>
+            <td>スコア</td>
+            <td>順位</td>
+            <td>最高スコア</td>
+            <td>半荘数</td>
+            <td>1着</td>
+            <td>2着</td>
+            <td>3着</td>
+            <td>4着</td>
+        </tr>
+        {% for rank, result in results %}
+        <tr>
+            <td class="td-playerid">{{ result.playerid }}</td>
+            <td class="td-playername">{{ result.player_name }}</td>
+            <td class="td-teamname">{{ result.team_name }}</td>
+            <td class="td-score">{{ result.total_score }}</td>
+            <td class="td-rank">{{ rank }}</td>
+            <td class="td-point">{{ result.max_point }}</td>
+            <td class="td-count">{{ result.count }}</td>
+            <td class="td-count">{{ result.rank1 }}</td>
+            <td class="td-count">{{ result.rank2 }}</td>
+            <td class="td-count">{{ result.rank3 }}</td>
+            <td class="td-count">{{ result.rank4 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+</div>
+<a href="{{ url_for('result.index') }}" class="button">戻る</a><br>
+{% endblock %}

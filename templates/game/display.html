@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>対局一覧 {{year}}-{{year-1999}}シーズン</h2>
+
+<div class="container-game">
+    <div class="table-container">
+        <table class="table-game">
+            <tr class="tr-header">
+                <td class="td-gameid">対局ID</td>
+                <td class="td-round_number">ラウンド</td>
+                <td class="td-match_number">#</td>
+                <td class="td-seasonName">区分</td>
+                <td class="td-gamedate">日付</td>
+                <td class="td-player">東家</td>
+                <td class="td-point">持ち点</td>
+                <td class="td-player">南家</td>
+                <td class="td-point">持ち点</td>
+                <td class="td-player">西家</td>
+                <td class="td-point">持ち点</td>
+                <td class="td-player">北家</td>
+                <td class="td-point">持ち点</td>
+        
+            </tr>
+            {% for game in games %}
+            <tr id="gameid_{{ game.id }}">
+                {% if game.date is none %}
+                <td class="td-gameid">
+                    <a href="{{ url_for('register.game', gameid=game.id, year=game.year) }}">
+                        {{ game.id }}
+                    </a>
+                </td>
+                {% else %}
+                <td class="td-gameid">
+                    <a href="{{ url_for('game.detail', gameid=game.id) }}">
+                        {{ game.id }}
+                    </a>
+                </td>
+                {% endif %}
+                <td class="td-round_number">{{ game.round_number }}</td>
+                <td class="td-match_number">#{{ game.match_number }}</td>
+                <td class="td-seasonName">{{ game.seasonName }}</td>
+        
+                {% if game.date is none %}
+                <td class="td-gamedate"></td>
+                {% else %}
+                <td class="td-gamedate">{{ game.date }}</td>
+                {% endif %}
+                {% for detail in game.details %}
+                {% if detail.rank == 1 %}
+                <td class="td-player td-top-player">
+                    {% else %}
+                <td class="td-player">
+                    {% endif %}
+                    {{ detail.player.name }}</td>
+                {% if detail.point is none %}
+                <td class="td-point"></td>
+                {% else %}
+                <td class="td-point">{{ detail.point }}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+</div>
+
+<a href="{{ url_for('game.index') }}" class="button">戻る</a><br>
+
+{% endblock %}

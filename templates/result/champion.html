@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="champion-box-wrapper">
+    <h1>優勝チーム</h1>
+    {% for year, champion in champions %}
+    <div class="champion-box-container">
+        <h3 class="season">{{ year }}-{{year-1999}}シーズン</h3>
+        <div class="champion-box"style="background-color: #{{champion.color}};">
+            <img src="{{ url_for('static', filename='images/' + champion.logo) }}" class="team-icon">
+            <div class="champion-team">
+                <div class="team-header">
+                    <span class="team-name">{{ champion.team }}</span>
+                    <span class="team-point">{{ champion.point }} pt</span>
+                </div>
+                <div class="players-images">
+                    {% for path in champion.path %}
+                    <img src="{{ url_for('static', filename='images/' + path) }}" class="player-icon">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

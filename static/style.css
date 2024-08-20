@@ -1,0 +1,919 @@
+/* ページ全体の設定 */
+.container {
+    /* 背景色グレー */
+    background-color: #f8f8f8;
+    /* 最大幅800px */
+    max-width: 650px;
+    /* 上下左右に20pxのパディングを設定 */
+    padding: 20px;
+    /* フォントファミリーをArialとsans-serifに設定 */
+    font-family: Meiryo, Arial, sans-serif;
+}
+
+.container-game {
+    /* 背景色グレー */
+    background-color: #f8f8f8;
+    /* 最大幅800px */
+    width: 96%;
+    /* 上下左右に20pxのパディングを設定 */
+    margin-top: 2%;
+    /* フォントファミリーをArialとsans-serifに設定 */
+    font-family: "Meiryo", Arial, sans-serif;
+}
+
+.table-container {
+    width: 98%;
+    overflow-x: auto;
+}
+
+.table-game {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    table-layout: fixed;
+}
+
+
+.container-result {
+    /* 背景色グレー */
+        background-color: #f8f8f8;
+        /* 最大幅800px */
+        max-width: 1500px;
+        /* 上下左右に20pxのパディングを設定 */
+        padding: 20px;
+        /* フォントファミリーをArialとsans-serifに設定 */
+        font-family: Arial, sans-serif;
+}
+
+
+
+.detail-players {
+    /* 背景色グレー */
+    background-color: #fbfbfb;
+    /* 最大幅800px */
+    max-width: 1200px;
+    /* 上下左右に20pxのパディングを設定 */
+    padding: 20px;
+    /* フォントファミリーをArialとsans-serifに設定 */
+    font-family: Meiryo, Arial, sans-serif;
+
+    display: flex;
+}
+
+.container-player {
+    /* 背景色グレー */
+    width: 220px;
+    /* 最大幅800px */
+    max-width: 800px;
+    /* 上下左右に20pxのパディングを設定 */
+    padding: 20px;
+    /* フォントファミリーをArialとsans-serifに設定 */
+    font-family: Meiryo, Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.detail-tables {
+    /* 
+    background-color: #fbfbfb; 
+    */
+    width: 200px;
+    color: #ffffff;
+}
+
+
+.button-register {
+    display: inline-block;
+    font-size: 17pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 5px 40px;
+    /* 余白       */
+    background: #ff9999;
+    /* 背景色     */
+    color: #ffffff;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    box-shadow: 3px 3px 10px #666666;
+    /* 影の設定 */
+    border: 2px solid #ff9999;
+    /* 枠の指定 */
+}
+
+.button-register:hover {
+    box-shadow: none;
+    /* カーソル時の影消去 */
+    color: #ff9999;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+
+/* テーブルの設定 */
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tr {
+    width: 100%;
+}
+
+.tr-header {
+    background-color: #cfcfcf;
+}
+
+.td-playerid {
+    background-color: #cfcfcf;
+    width: 90px;
+}
+
+.td-playername {
+    width: 130px;
+}
+
+.td-teamname {
+    width: 250px;
+}
+
+.td-gender {
+    width: 80px;
+}
+
+.td-year {
+    width: 80px;
+}
+
+.table-game .td-gameid {
+    width: 6%;
+}
+
+.table-game .td-gamedate {
+    width: 9%;
+}
+
+.table-game .td-round_number {
+    width: 6%
+}
+
+.table-game .td-match_number {
+    width: 4%;
+}
+
+.table-game .td-seasonName {
+    width: 6%;
+}
+
+.table-game .td-player {
+    width: 9%;
+}
+
+.td-top-player {
+    color: #f01414;
+}
+
+.table-game .td-point {
+    width: 6%;
+}
+
+.td-score {
+    width: 80px
+}
+
+.td-max_point {
+    width: 90px
+}
+
+.td-rank {
+    width: 40px
+}
+
+.td-count {
+    width: 60px
+}
+
+/* Flexbox コンテナとして ul を設定 */
+.flex-container {
+    /* display: flex; */
+    /* フレックスボックスレイアウトを適用 */
+    /* flex-wrap: wrap; */
+    /* アイテムが折り返されるように設定 */
+    gap: 20px;
+    /* アイテム間の間隔 */
+    padding: 0;
+    /* デフォルトのパディングを削除 */
+    margin: 0;
+    /* デフォルトのマージンを削除 */
+    list-style: none;
+    /* デフォルトのリストスタイルを削除 */
+    width: 1000px;
+    font-family: Meiryo, Arial, sans-serif;
+    padding: 0 4%;
+}
+
+/* フレックスアイテムとして li を設定 */
+.player-item {
+    display: flex;
+    /* フレックスボックスレイアウトを適用 */
+    /* flex-direction: column; */
+    /* 縦に並べる */
+    align-items: center;
+    /* 水平方向に中央揃え */
+    
+    padding: 10px;
+    /* 内側の余白 */
+    /* border-radius: 10px; */
+    /* 角の丸み */
+    width: 100%;
+    /* アイテムの幅（必要に応じて調整） */
+    height: 70px;
+    text-align: center;
+    /* テキストを中央揃え */
+    gap: 10px;
+    border-bottom: 0.5px solid #C4C4C4;
+}
+
+.player-item-header {
+    display: flex;
+    /* フレックスボックスレイアウトを適用 */
+    width: 1000px;
+    /* アイテムの幅（必要に応じて調整） */
+    height: 50px;
+    padding: 10px;
+    /* 高さは自動調整 */
+    text-align: center;
+    gap: 10px;
+    /* テキストを中央揃え */
+
+    border-bottom: 0.5px solid #C4C4C4;
+}
+
+/* カラーボックス選手名 (大) */
+.span_player_item {
+    background-color: #ffffff;
+    /* 背景色 */
+    color: #fff;
+    /* テキストの色 */
+    padding: 10px;
+    /* 内側の余白 */
+    font-size: 24px;
+    /* フォントサイズ */
+    width: 25%;
+    /* 幅を100%にして親要素の幅に合わせる */
+    box-sizing: border-box;
+    /* パディングやボーダーを幅に含める */
+    height: 96%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* playername と rank の間隔 */
+
+    display: flex;
+    /* spanをブロックとして扱う */
+    justify-content: center;
+    align-items: center;
+    /* 水平方向に中央揃え */
+
+    border-radius: 200px;
+
+}
+
+/* rank のスタイル */
+.span-rank {
+    font-size: 23px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 10%;
+}
+
+/* rank のスタイル */
+.span-rank-header {
+    font-size: 15px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 10%;
+    align-items: flex-end;
+}
+
+/* rank のスタイル */
+.span-point {
+    font-size: 28px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 13%;
+}
+
+/* rank のスタイル */
+.span-point-header {
+    font-size: 13px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 13%;
+}
+
+.span-count {
+    font-size: 26px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 10%;
+}
+
+.span-count-header {
+    font-size: 13px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 10%;
+}
+
+.player-item-header {
+    font-size: 18px;
+    align-items: flex-end;
+        /* 水平方向に中央揃え */
+}
+
+.span-header {
+    font-size: 23px;
+    /* フォントサイズ */
+    color: #333;
+    /* テキストの色（必要に応じて変更） */
+    width: 8%;
+}
+
+.game_detail_header {
+    background-color: #ffffff;
+    width: 100%;
+    font-family: Meiryo, Arial, sans-serif;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+
+.detail-rounds {
+    font-family: Meiryo, Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+
+.round-detail {
+    width: 1200px;
+
+    display: flex;
+    /* フレックスボックスレイアウトを適用 */
+
+    align-items: center;
+    /* 水平方向に中央揃え */
+
+
+    padding: 2px;
+    height: 40px;
+    text-align: center;
+    /* テキストを中央揃え */
+    gap: 10px;
+    border-bottom: 0.5px solid #C4C4C4;
+}
+
+
+.round-detail-name {
+    width: 8%;
+    display: flex;
+    align-items: center;
+}
+
+.round-detail-result {
+    width: 5%;
+    height: 100%;
+    background-color: #ffffff;
+
+    display: inline-block;
+    /* 追加 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 選手名 カラーボックス */
+.round-detail-player {
+    width: 8%;
+
+    /* 背景色 */
+    color: #fff;
+    /* テキストの色 */
+
+    /* 内側の余白 */
+    font-size: 90%;
+    /* フォントサイズ */
+    box-sizing: border-box;
+    /* パディングやボーダーを幅に含める */
+    height: 80%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    /* playername と rank の間隔 */
+    /* 水平方向に中央揃え */
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-detail-balance {
+    width: 14%;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+    width: 210px;
+}
+
+.main-nav {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 34px;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 36px;
+}
+
+.main-nav a {
+    color: #432;
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    color: #0bd;
+}
+
+
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.grid-players {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    
+    border-bottom: 0.5px solid #C4C4C4;
+}
+
+.grid-players-item {
+    justify-self: center;
+}
+
+.player-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-players-item .player-icon:hover {
+    opacity: 0.7;
+}
+
+.player-icon-shadow {
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+}
+
+.detail-player-icons .player-icon {
+    width: 100px;
+    height: 100px;
+
+    border: 2px solid #ffffff;
+}
+
+.player-icon-caption {
+
+    font-family: Meiryo, Arial, sans-serif;
+    margin-top: 5px;
+    /* 名前と画像の間の余白を調整 */
+    font-size: 16px;
+    /* フォントサイズの調整 */
+    line-height: 1.2;
+    /* 行の高さを調整して、よりタイトにする */
+
+    display: flex;
+    justify-content: center;
+}
+
+.season-button {
+    background-color: #1c7622;
+    color: #fff;
+    width: 200px;
+    height: 40px;
+    display: flex;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    /* ボーダーをボタンの枠内に収める */
+    border: 2px solid transparent;
+    /* 初期状態でボーダーの幅を確保 */
+}
+
+.season-button:hover {
+    background-color: #f8f8f8;
+    color: #1c7622;
+
+    border: 2px solid #1c7622;
+}
+
+.detail-player-container {
+    /* 背景色グレー */
+    background-color: #f8f8f8;
+    padding: 20px;
+    /* フォントファミリーをArialとsans-serifに設定 */
+    font-family: Meiryo, Arial, sans-serif;
+    width: 80%;
+}
+
+.detail-player-icons{
+    width: 20%;
+}
+
+.detail-player-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.player-detail-boxes-wrapper {
+    display: inline-box;
+    text-align: center;
+    width: 100%;
+}
+
+.dummy {
+    width: 2%;
+    order: 1
+}
+.dummy2 {
+    width: 2%;
+    order: 3
+}
+
+.player-detail-boxes {
+    background-color: #ffffff;
+    width: 94%;
+
+    font-family: Meiryo, Arial, sans-serif;
+    display: inline-block;
+    order: 2;
+
+    padding-bottom: 30px;
+}
+
+.player-detail-boxes .title {
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+.result-boxes {
+    margin-bottom: 60px;
+}
+
+.player-box {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+
+    border-radius: 10px;
+
+    display: inline-block;
+
+    border: 2px solid #000000;
+
+}
+
+.player-detail-block {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.player-box .seasonName {
+    margin-left: 30px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.player-box .player-icon {
+    width: 130px;
+    height: 130px;
+    margin: 10px;
+
+    border-radius: 200px;
+
+    border: none;
+}
+
+.player-detail-result {
+    margin: 10px;
+    display: inline-block;
+    padding-top: 10px
+}
+
+.player-detail-result table {
+    vertical-align: middle;
+}
+
+
+
+.player-detail-high-result {
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+
+.td-seasonName {
+    width: 80px;
+}
+
+.td-avoid4, .td-top_rate, .td-rentai, .td-average_rank {
+    width: 75px;
+}
+
+.tr-All {
+
+    border-top: 3px double #ddd;
+}
+
+.player-box th {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.player-detail-result {
+    overflow-x: auto;
+}
+
+.result-table {
+    width: 80%;
+    table-layout: fixed;
+}
+
+/* 選手詳細のプロフィール部分 */
+.profile {
+    font-family: "Meiryo", "ヒラギノ角ゴ ProN",
+     system-ui, monospace,
+    "Noto Sans",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK JP Subse",
+        sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    width: 98%;
+
+    /* リストスタイル削除 */
+    list-style: none;
+    padding-left: 30px;
+}
+
+.profile-content {
+    display: inline-block;
+    width: 90%;
+}
+
+.profile-content .name {
+    font-size: 36px;
+}
+
+.profile .team-icon {
+    width: 220px;
+    height: 220px;
+    margin: 10px;
+    margin-right: 30px;
+}
+.profile-info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.profile-info-list {
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.profile-info-list-mini {
+    width: 40%;
+    box-sizing: border-box;
+    margin-left: 50px;
+}
+
+.profile-info-list-item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    border-bottom: 0.5px solid #C4C4C4;
+    width: 100%;
+}
+
+/* レギュラーシーズン成績詳細の設定 */
+.result-regular {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+
+    width: 1160px;
+    table-layout: fixed;
+}
+
+.description-result {
+    text-align: left;
+    margin-left: 40px;
+}
+
+.result-regular-table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.result-regular th {
+    font-size: 15px;
+    font-weight: normal;
+    border: 1px solid #ddd;
+}
+
+.result-regular .td-year {
+    width: 80px;
+}
+
+.result-regular .td-rate {
+    width: 90px;
+}
+
+/* 対局一覧のテーブルの幅 */
+.table-game {
+    width: 1230px;
+}
+
+.table-game .td-gameid {
+    width: 60px;
+}
+
+.table-game .td-round_number {
+    width: 80px;
+}
+
+.table-game .td-match_number {
+    width: 30px;
+}
+
+.table-game .td-seasonName {
+    width: 80px;
+}
+
+.table-game .td-gamedate {
+    width: 100px;
+}
+
+.table-game .td-player {
+    width: 120px;
+}
+
+.table-game .td-point {
+    width: 100px;
+}
+
+.percent {
+    font-size: 0.7em;
+}
+
+
+
+/* チャンピオンページ */
+
+.champion-box-wrapper {
+    font-family: "Meiryo", "ヒラギノ角ゴ ProN",
+            system-ui, monospace,
+            "Noto Sans",
+            "Noto Sans CJK JP",
+            "Noto Sans CJK JP Subse",
+            sans-serif;
+    width: 100%;
+}
+
+
+.champion-box-container {
+    margin: 20px;
+    margin-bottom: 40px;
+    width: 96%;
+}
+
+.champion-box {
+    display: flex;
+    width: 900px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.champion-team {
+    height: 100%;
+    width: 800px;
+
+    display: inline-block;
+}
+
+.champion-team .team-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #C4C4C4;
+    margin-bottom: 20px;
+}
+
+.champion-team .team-name {
+    font-size: 30px;
+}
+
+.champion-team .team-point {
+    font-size: 30px;
+}
+
+/* チームロゴ */
+.champion-box .team-icon {
+    width: 200px;
+    height: 200px;
+    
+    margin-right: 30px;
+}
+
+.players-images {
+    display: grid;
+    width: 100%;
+
+    overflow-x: auto;
+    grid-template-columns: repeat(4, 150px);
+}
+
+.champion-team .player-icon {
+    border: none;
+    border-radius: 100%;
+    margin-right: 10px;
+    width: 130px;
+    height: 130px;
+}
+
+
+@media (max-width: 768px) {
+    .champion-box {
+        flex-direction: column;
+        width: 660px;
+    }
+
+    .champion-team {
+        width: 600px;
+    }
+}

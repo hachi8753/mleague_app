@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>TOPページ</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{{ url_for('register.regulation') }}" class="button">新年度レギュレーション登録</a><br>
+    <a href="{{ url_for('register.player') }}" class="button">選手登録</a><br>
+    <a>選手退団</a><br>
+    <a>チーム参戦</a><br>
+    <br>
+</div>
+
+<a href="{{ url_for('index') }}" class="button">戻る</a>
+
+{% endblock %}

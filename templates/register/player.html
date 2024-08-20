@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>選手登録</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="{{ url_for('register.player') }}">
+        {{ form.csrf_token }}
+        {{ form.id.label }}<br>{{ form.id() }}<br>
+        {{ form.name.label }}<br>{{ form.name() }}<br>
+        {{ form.team.label }}<br>{{ form.team() }}<br>
+        {{ form.gender.label }}<br>{{ form.gender() }}<br>
+        {{ form.submit() }}
+    </form>
+    <br>
+</div>
+<a href="{{ url_for('register.index') }}">戻る</a>
+{% endblock %}

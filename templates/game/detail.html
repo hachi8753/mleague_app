@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h2>対局詳細</h2>
+{% endblock %}
+
+{% block content %}
+<h2>
+    <div class="game_detail_header">
+        <span>{{ game.year }}-{{ game.year-1999 }}シーズン No.{{ game.round_number }}</span>
+        <span>{{ game.date }} #{{ game.match_number }}</span>
+    </div>
+</h2>
+<div class="game_detail_header">
+    <span><a href="{{ url_for('game.detail', gameid=game.id-1) }}" class="button">前の対局</a></span>
+    <span><a href="{{ url_for('game.detail', gameid=game.id+1) }}" class="button">次の対局</a></span>
+</div>
+
+{% if game.check == 0 or not check %}
+<br>記録なし<br>
+{% else %}
+
+<ul class="flex-container">
+
+    <li class="player-item-header">
+        <span class="span_player_item"></span>
+        <span class="span-rank-header">順位</span>
+        <span class="span-point-header">最終持ち点</span>
+        <span class="span-count-header">リーチ回数</span>
+        <span class="span-count-header">和了回数</span>
+        <span class="span-count-header">放銃回数</span>
+    </li>
+
+    {% for player in players %}
+    <li class="player-item">
+        <span class="span_player_item detail_item_{{ player.player.teamid }}"style="background-color: #{{ player.player.team.color_code }};">
+            {{ player.name }}
+        </span>
+        <span class="span-rank">
+            {{ player.rank }}位
+        </span>
+        <span class="span-point">
+            {{ player.point }}
+        </span>
+        <span class="span-count">
+            {{ player.richi }}回
+        </span>
+        <span class="span-count">
+            {{ player.win }}回
+        </span>
+        <span class="span-count">
+            {{ player.deal_in }}回
+        </span>
+
+    </li>
+    {% endfor %}
+
+</ul><br><br>
+
+
+<div class="detail-rounds">
+    <h3>対局詳細</h3>
+    {% for round in rounds %}
+        <li class="round-detail">
+            <span class="round-detail-name">{{ round.round_name }}
+            </span>
+            <span class="round-detail-result">{{ round.result }}</span>
+            {% if round.result == '和了' %}
+            <span class="round-detail-player"style="background-color: #{{ round.color }};">{{ round.name }}</span>
+            <span class="round-detail-balance tooltip-container">+{{ round.balance }} (+{{round.point}})</span>
+            <span>{{ round.yaku }}</span>
+            {% endif %}
+            <br>
+        </li>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+
+
+
+<br>
+
+
+
+<br>
+{% endblock %}

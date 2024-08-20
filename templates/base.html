@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block header %} M.LEAGUE成績サイト {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="page-header wrapper">
+        <h1><a href="{{ url_for('index') }}"><img class="logo"
+                    src="{{ url_for('static', filename='images/logo-row.svg') }}"></a></h1>
+        {% block title %}{% endblock %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="main-nav">
+                <li><a href="{{ url_for('game.index') }}">GAME</a></li>
+                <li><a href="{{ url_for('player.display') }}">PLAYER</a></li>
+                <li><a href="{{ url_for('result.index') }}">RESULT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr />
+    
+    {% block content %} 内容 {% endblock %}
+</body>
+
+</html>

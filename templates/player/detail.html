@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="profile">
+    <img src="{{ url_for('static', filename='images/' + team_logo) }}" class="team-icon">
+    <div class="profile-content">
+        <h1 class="name">{{player.name}}</h1>
+        <div class="profile-info">
+            <ul class="profile-info-list">
+                <li class="profile-info-list-item">
+                    <span>チーム</span>
+                    <span>{{ player.team.name }}</span>
+                </li>
+                <li class="profile-info-list-item">
+                    <span>入団年</span>
+                    <span>{{ (player.history | first).entry_year }}</span>
+                </li>
+                {% if (player.history | first).leave_year is not none %}
+                <li class="profile-info-list-item">
+                    <span>退団年</span>
+                    <span>{{ (player.history | first).leave_year }}</span>
+                </li>
+                {% endif %}
+                {% if player.transfer %}
+                <li class="profile-info-list-item">
+                    <span>移籍</span>
+                    <span>{{ (player.transfer | first).player.team.name }} → {{ (player.transfer | first).new_player.team.name
+                        }}</span>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="profile-info-list-mini">
+                <li class="profile-info-list-item">
+                    <span>所属</span>
+                    <span>{{ player.organization }}</span>
+                </li>
+                <li class="profile-info-list-item">
+                    <span>誕生日</span>
+                    <span>{{ player.birthday }}</span>
+                </li>
+                <li class="profile-info-list-item">
+                    <span>出身地</span>
+                    <span>{{ player.hometown }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="player-detail-boxes-wrapper">
+    <div class="player-detail-boxes"style="background-color: #{{player.team.color_code_light}};">
+        <div class="result-boxes">
+            <h2 class="title"style="background-color: #{{player.team.color_code_light}};">成績</h2>
+            {% for year, image, results in boxes %}
+            <div class="player-box">
+                <p class="seasonName">{{year}}-{{year-1999}}シーズン</p>
+                <div class="player-detail-block">
+                    <img src="{{ url_for('static', filename='images/' + image.path) }}" class="player-icon">
+                    <div class="player-detail-result">
+                        <table class="result-table">
+                            <tr class="tr-header">
+                                <th class="td-seasonName">区分</th>
+                                <th class="td-score">スコア</th>
+                                <th class="td-avoid4">4着回避率</th>
+                                <th class="td-top_rate">トップ率</th>
+                                <th class="td-rentai">連対率</th>
+                                <th class="td-average_rank">平均着順</th>
+                                <th class="td-max_point">最高スコア</th>
+                                <th class="td-count">半荘数</th>
+                                <th class="td-count">1着</th>
+                                <th class="td-count">2着</th>
+                                <th class="td-count">3着</th>
+                                <th class="td-count">4着</th>
+                            </tr>
+                            {% for seasonName, result in results %}
+                            {% if result.avoid4 %}
+                            {% if seasonName == "All" %}
+                            <tr class="tr-All">
+                                {% else %}
+                            <tr>
+                                {% endif %}
+                                <td class="td-seasonName">{{ seasonName }}</td>
+                                <td class="td-score">{{ result.score }}</td>
+                                <td class="td-avoid4">{{ result.avoid4 }}</td>
+                                <td class="td-top_rate">{{ result.top_rate }}</td>
+                                <td class="td-rentai">{{ result.rentai }}</td>
+                                <td class="td-average_rank">{{result.average_rank }}</td>
+                                <td class="td-point">{{ result.max_point }}</td>
+                                <td class="td-count">{{ result.count }}</td>
+                                <td class="td-count">{{ result.rank1 }}</td>
+                                <td class="td-count">{{ result.rank2 }}</td>
+                                <td class="td-count">{{ result.rank3 }}</td>
+                                <td class="td-count">{{ result.rank4 }}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+            
+                        </table>
+            
+                    </div>
+            
+                </div>
+            </div>
+            {% endfor %}
+            <div class="player-box">
+                <p class="seasonName">通算</p>
+                <div class="player-detail-block">
+                    <img src="{{ url_for('static', filename='images/' + team_logo) }}" class="player-icon">
+                    <div class="player-detail-result">
+                        <table class="result-table">
+                            <tr class="tr-header">
+                                <th class="td-seasonName">区分</th>
+                                <th class="td-score">スコア</th>
+                                <th class="td-avoid4">4着回避率</th>
+                                <th class="td-top_rate">トップ率</th>
+                                <th class="td-rentai">連対率</th>
+                                <th class="td-average_rank">平均着順</th>
+                                <th class="td-max_point">最高スコア</th>
+                                <th class="td-count">半荘数</th>
+                                <th class="td-count">1着</th>
+                                <th class="td-count">2着</th>
+                                <th class="td-count">3着</th>
+                                <th class="td-count">4着</th>
+                            </tr>
+                            {% for seasonName, result in results_all %}
+                            {% if seasonName == "All" %}
+                            <tr class="tr-All">
+                                {% else %}
+                            <tr>
+                                {% endif %}
+                                <td class="td-seasonName">{{ seasonName }}</td>
+                                <td class="td-score">{{ result.score }}</td>
+                                <td class="td-avoid4">{{ result.avoid4 }}</td>
+                                <td class="td-top_rate">{{ result.top_rate }}</td>
+                                <td class="td-rentai">{{ result.rentai }}</td>
+                                <td class="td-average_rank">{{result.average_rank }}</td>
+                                <td class="td-point">{{ result.max_point }}</td>
+                                <td class="td-count">{{ result.count }}</td>
+                                <td class="td-count">{{ result.rank1 }}</td>
+                                <td class="td-count">{{ result.rank2 }}</td>
+                                <td class="td-count">{{ result.rank3 }}</td>
+                                <td class="td-count">{{ result.rank4 }}</td>
+                            </tr>
+                            {% endfor %}
+            
+                        </table>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-boxes">
+            <h2 class="title"style="background-color: #{{player.team.color_code_light}};">成績詳細 (レギュラーシーズン)</h2>
+            <div class="player-box">
+                <div class="result-regular-table-container">
+                    <table class="result-regular">
+                        <tr class="tr-header">
+                            <th>年</th>
+                            <th>総局数</th>
+                            <th>和了率</th>
+                            <th>平均打点</th>
+                            <th>ツモ率</th>
+                            <th>一発率</th>
+                            <th>リーチ率</th>
+                            <th>放銃率</th>
+                            <th>平均<br>放銃点</th>
+                            <th>流局率</th>
+                            <th>流局聴牌率</th>
+                            <th>副露率</th>
+                            <th>最大連勝数</th>
+                        </tr>
+                        {% for year, result in detail_result %}
+                        <tr>
+                            <td class="td-year">{{ year }}</td>
+                            <td class="td-rate">{{ result.round_count }}</td>
+                            <td class="td-rate">{{ result.win_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.average_win_point }}</td>
+                            <td class="td-rate">{{ result.tsumo_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.soku_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.richi_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.deal_in_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate"></td>
+                            <td class="td-rate">{{ result.draw_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.tenpai_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate">{{ result.meld_rate }}<span class="percent"> %</span></td>
+                            <td class="td-rate"></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                
+            </div>        
+        </div>
+        <div class="result-boxes">
+            <h2 class="title">直近10戦</h2>
+        </div>
+    </div>
+    <div class="dummy"></div>
+    <div class="dummy2"></div>
+</div>
+
+
+
+{% endblock %}

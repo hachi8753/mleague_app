@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>対局結果登録</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="{{ url_for('register.game', gameid=gameid, year=year) }}">
+        {{ form.csrf_token }}
+        {{ form.id.label }}<br>{{ form.id() }}<br>
+        {{ form.date.label }}<br>{{ form.date() }}<br>
+        {{ form.player1.label }}<br>{{ form.player1() }}{{ form.point1() }}<br>
+        {{ form.player2.label }}<br>{{ form.player2() }}{{ form.point2() }}<br>
+        {{ form.player3.label }}<br>{{ form.player3() }}{{ form.point3() }}<br>
+        {{ form.player4.label }}<br>{{ form.player4() }}{{ form.point4() }}<br>
+        <br>
+        {{ form.submit() }}
+        
+    </form>
+    <br>
+</div>
+<a href="{{ url_for('game.display', year=year) }}#gameid_{{ gameid }}">戻る</a>
+{% endblock %}

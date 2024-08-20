@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <a href="{{ url_for('player.display') }}" class="button">選手一覧</a><br>
+    <a href="{{ url_for('game.index') }}" class="button">対局一覧</a><br>
+    <a href="{{ url_for('result.index') }}" class="button">レギュラー成績</a><br>
+    <br>
+    <a href="{{ url_for('register.index') }}" class="button">新規登録</a>
+    <br>
+</div>
+
+{% endblock %}
